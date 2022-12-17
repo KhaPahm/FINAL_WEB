@@ -1,0 +1,7 @@
+{
+    "open sans": {
+        "300": "C:\\xampp\\htdocs\\final_web\\vendor\\dompdf\\dompdf\/lib\/fonts\/open_sans_300_8eafd575bbaef3821514b2ae187a32c3",
+        "normal": "C:\\xampp\\htdocs\\final_web\\vendor\\dompdf\\dompdf\/lib\/fonts\/open_sans_normal_0de70c49c12ad3d5b30897be0764f760",
+        "800": "open_sans_800_76c458dee2d5a4bbd044249c24f06cf5"
+    }
+}

@@ -1,0 +1,28 @@
+body{
+    margin: auto;
+    font-family: "Open Sans", sans-serif;
+    background-color:white;
+}
+
+:root {
+    --primary-color: #00ac9d;
+    --secondary-color: #00467f;
+    --alt-color: #f1f1f1;
+
+    --secondary-text-color: #a3a3a3;
+    --secondary-text-light: #e3e3e3;
+
+    --secondary-color-dark: #081a29;
+
+    --swiper-theme-color: var(--primary-color);
+
+    --surface-color: #fff;
+    --curve: 20;
+}
+
+header{
+    width: 100%;
+    height: 2rem;
+    background-color: #00ac9d;
+    object-fit: contain;
+}
