@@ -1,7 +1,7 @@
-body{
+body {
     margin: auto;
     font-family: "Open Sans", sans-serif;
-    background-color:white;
+    background-color: white;
 }
 
 :root {
@@ -20,9 +20,244 @@ body{
     --curve: 20;
 }
 
-header{
+body {
+    margin: auto;
+    background-color: #eef4f9;
+}
+
+header {
     width: 100%;
     height: 2rem;
     background-color: #00ac9d;
     object-fit: contain;
+}
+
+.booking {
+    background-image: url(images/flights/bg2.jpg);
+    height: 30em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info {
+    height: 3.5em;
+    width: 100%;
+    background-color: #eef4f9;
+    min-width: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.destination {
+    height: 2em;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5em;
+    margin-left: 1em;
+    border: 1px solid #d9d6d6;
+    border-radius: 2em;
+    box-sizing: border-box;
+    color: #393c3e;
+}
+
+.destination i {
+    color: #256eaa;
+}
+
+.datefly,
+.quan_pass,
+.class_fly,
+.change_search a {
+    height: 2em;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5em;
+    margin-left: 1em;
+    border: 1px solid #d9d6d6;
+    border-radius: 2em;
+    box-sizing: border-box;
+    color: #393c3e;
+    text-decoration: none;
+
+}
+
+.datefly i,
+.quan_pass i,
+.class_fly i,
+.change_search a i {
+    color: #256eaa;
+    margin: 0.8em;
+    font-size: 0.8em;
+}
+
+.change_search a {
+    border: 1px solid #00467f;
+    margin: 0;
+    color: #256eaa;
+}
+
+.title {
+    font-size: 1.2em;
+    color: #00ac9d;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    margin-top: 5em;
+    background-color: #ffffff;
+    border-radius: 1em;
+}
+
+.result {
+    position: relative;
+    top: -4em;
+}
+
+.flight {
+    display: flex;
+    flex-direction: row;
+    height: 7em;
+    margin: 0 1.2em;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 0.6em;
+    box-sizing: border-box;
+    margin: 1em 0;
+    width: 80%;
+}
+
+.branch {
+    height: fit-content;
+    width: 16%;
+    display: flex;
+    margin-left: 0.4em;
+    padding: 1em 1em 1em 0;
+    border-right: 1px dashed #00ac9d;
+    display: flex;
+    justify-content: center;
+}
+
+.branch img {
+    max-width: 50%;
+}
+
+.detail {
+    max-height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    box-sizing: border-box;
+    border-right: 1px dashed #00ac9d;
+}
+
+.map {
+    display: flex;
+    flex-direction: row;
+}
+
+.time {
+    max-height: 100%;
+    margin: 1em 0;
+}
+
+.time p,
+.time h4,
+.duration p {
+    margin: 0.2em;
+}
+
+.time p {
+    font-size: 0.8em;
+    color: #a3a3a3;
+}
+
+.time h4 {
+    font-size: 1em;
+    color: #2e2e2e;
+}
+
+.time h4 span {
+    color: #a3a3a3;
+}
+
+.duration p {
+    color: #a3a3a3;
+    font-size: 1.1em;
+    font-weight: 580;
+}
+
+.map {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.map i {
+    color: #00ac9d;
+}
+
+.map span {
+    color: #1767a9;
+    padding: 5px;
+}
+
+.mid {
+    padding: 6px 4px;
+    border-radius: 50%;
+    border: 1px solid #4a4b4b;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 24%;
+}
+
+.price_detail p {
+    font-size: 0.8em;
+    color: #a3a3a3;
+    margin: 0.2em;
+}
+
+.price_detail h4 {
+    font-size: 1em;
+    color: #00ac9d;
+    margin: 0.4em;
+}
+
+.price_detail h4 span {
+    color: #a3a3a3;
+}
+
+.price_detail button {
+    border: none;
+    border-radius: 0.4em;
+    background-color: #f2961e;
+    color: #fff;
+    padding: 0.8em;
 }

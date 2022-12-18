@@ -23,6 +23,10 @@ class user_controllers {
         return user::getCustomerInfor($email);
     }
 
+    public static function getUserInfor($userid) {
+        return user::getUserInfor($userid);
+    }
+
     public static function forGotPassword($email) {
         return user::forgotPassword($email);
     }
@@ -34,6 +38,11 @@ class user_controllers {
 
     public static function changePasswor($email, $oldPass, $newPass) {
         return user::changePasswor($email, $oldPass, $newPass);
+    }
+
+    public static function getUser()
+    {
+        return user::getUser();
     }
 
 }

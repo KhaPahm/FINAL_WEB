@@ -11,7 +11,11 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['nationality
     $price = $_POST['price']; 
     $typeofseat = $_POST['typeofseat'];
     ticket_controlers::bookTicket($fanme, $lname, $nationality, $email, $phone, $flight_id, $price, $typeofseat);
-} else {
+}
+else if (isset($_POST['tickets_user_id'])) {
+    ticket_controlers::getTicketsOfUser($_POST['tickets_user_id']);
+}
+else {
     echo json_encode(array("status" => 'sai'));
 }
 

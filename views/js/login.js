@@ -61,7 +61,7 @@ $("#btn_login").click(() => {
          if (status && role < 2) {
             window.location.replace('index.php');
          } else if (status && role == 3) {
-            alert(" ADMIN");
+            window.location.replace('admin.php');
          } else {
             alert(" Wrong username or password!");
          }

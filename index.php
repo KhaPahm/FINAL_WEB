@@ -14,7 +14,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     /> -->
-    <link rel="stylesheet" href="./views/css/landing_style.css" />
+    <link rel="stylesheet" href="landing_style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -25,16 +25,15 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a3fe8c29cc.js" crossorigin="anonymous"></script>
     <!-- <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" /> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
         integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 
 
 
 
 
-
-    <script src="js/wow.min.js"></script>
+    <!-- <script src="js/wow.min.js"></script> -->
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 
@@ -56,7 +55,7 @@
                         <div class="menu">
                             <ul>
                                 <li>
-                                    <a href="">Discover</a>
+                                    <a href="">Flights</a>
                                 </li>
                                 <li>
                                     <a href="">Service</a>
@@ -65,7 +64,7 @@
                                     <a href="">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="">About us</a>
+                                    <a href="">Account</a>
                                 </li>
                             </ul>
                         </div>
@@ -90,7 +89,8 @@
                     <a href="login.php" class="btn btn-secondary none_login"> Registation </a>
 
                     <a href="#" class="btn btn-primary loggedin"> WELCOME BACK
-                        <?php session_start(); if(isset($_SESSION['logged_in'])) echo $_SESSION['logged_in'] ?> </a>
+                        <?php session_start();
+                        if (isset($_SESSION['logged_in'])) echo $_SESSION['logged_in'] ?> </a>
 
                     <a class="btn btn-secondary loggedin" id="log_out"> LOG OUT </a>
                 </div>
@@ -107,31 +107,125 @@
                                     <li title="Delivery Contents"><label for="tab2" role="button"><svg
                                                 viewBox="0 0 24 24">
 
-                                            </svg><br><span>Return</span></label></li>
+                                            </svg><br><span><i
+                                                    class="fa-solid fa-location-arrow"></i>Return</span></label></li>
                                 </ul>
 
-                                <!-- <div class="content">
-                  <section>
-                      <h2>One-way</h2>
-                      <form action="" class="inputbox">
-                        <input type="text" required="required">
-                        <span>From (City or airport)</span>
+                                <div class="contentform">
+                                    <section>
+                                        <h2>One-way</h2>
+                                        <form action="" class="inputbox" onsubmit="return false;">
+                                            <div class="froup">
+                                                <label for="name">From</label><br>
+                                                <select name="takeoff_airport" id="takeoff_airport">
+                                                    <option value="none">SELECT</option>
+                                                </select>
 
-                        <input type="text" required="required">
-                        <span>Destination (City or airport)</span>
+                                            </div>
 
-                        
-                      </form>
-                      
-                      
-                  </section> -->
-                                <!-- <section>
-                      <h2>Return</h2>
-                      
-                  </section> -->
+                                            <div class="froup">
+                                                <label for="des">Destination</label><br>
+                                                <select name="landing_airport" id="landing_airport">
+                                                    <option value="none">SELECT</option>
+                                                </select>
+
+                                            </div>
+
+                                            <div class="froup">
+                                                <label for="des">The Day start</label><br>
+                                                <input type="date" name="takeoff_day" required="required"
+                                                    id="start_day">
+
+                                            </div>
+
+                                            <!-- <div class="pass">
+                                                <div class="froup" id="pax">
+                                                    <label for="des">Passengers</label><br>
+                                                    <input type="number" name="des" required="required" value="1">
+
+                                                </div>
+
+                                                <div class="froup" id="pax">
+                                                    <label for="des">Chirlden</label><br>
+                                                    <input type="number" name="des" required="required" value="1">
+
+                                                </div>
+                                            </div> -->
+
+                                            <input type="submit" class="btn btn-primary" value="Search" id="search-one">
+
+                                        </form>
+
+
+                                    </section>
+                                    <section>
+                                        <h2>Return</h2>
+                                        <form action="" class="inputbox">
+                                            <div class="froup">
+                                                <label for="name">From (City or airport)</label>
+                                                <select name="takeoff_airport" id="takeoff_airport_re">
+                                                    <option value="none">HN</option>
+                                                    <option value="guava">HCM</option>
+                                                    <option value="lychee">DN</option>
+                                                    <option value="papaya">HP</option>
+                                                </select>
+
+                                            </div>
+
+                                            <div class="froup">
+                                                <label for="des">Destination (City or airport)</label>
+                                                <select name="landing_airport" id="landing_airport_re">
+                                                    <option value="none">HN</option>
+                                                    <option value="guava">HCM</option>
+                                                    <option value="lychee">DN</option>
+                                                    <option value="papaya">HP</option>
+                                                </select>
+
+                                            </div>
+
+                                            <div class="froup">
+                                                <label for="des">The Day start</label><br>
+                                                <input type="date" name="des" required="required" id="start_day_re">
+                                            </div>
+
+                                            <div class="froup">
+                                                <label for="des">Date back</label><br>
+                                                <input type="date" name="des" required="required" id="re_day">
+
+                                            </div>
+
+
+
+                                            <div class="pass">
+                                                <!-- <div class="froup" id="pax">
+                                                    <label for="des">Passengers</label><br>
+                                                    <input type="number" name="des" required="required" value="1">
+
+                                                </div>
+
+                                                <div class="froup" id="pax">
+                                                    <label for="des">Chirlden</label><br>
+                                                    <input type="number" name="des" required="required" value="1">
+
+                                                </div>
+                                            </div> -->
+
+
+                                                <input type="submit" class="btn btn-primary" value="Search">
+
+                                        </form>
+                                    </section>
+                                </div>
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
@@ -231,7 +325,7 @@
                                 </span>
                             </p>
                         </div>
-                        <a />
+                    </a>
 
                 </div>
             </div>
@@ -299,9 +393,9 @@
     <footer>
         <!-- <img src="images/Logo2.png" alt="" class="logo2"> -->
     </footer>
-    <script>
+    <!-- <script>
     new WOW().init();
-    </script>
+    </script> -->
     <script src="./views/js/landing_logic.js"></script>
 
 </body>

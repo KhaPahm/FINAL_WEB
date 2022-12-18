@@ -1,6 +1,7 @@
 <?php 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
+use function Clue\StreamFilter\fun;
 
 class user {
     public function __construct()
@@ -143,6 +144,18 @@ class user {
         echo json_encode(array('status' => true, 'data' => $data));
     }
 
+    public static function getUserInfor($userid) {
+        require_once "../database/database.php";
+        $query = "select * from customer where customer_id = '".$userid."'";
+        $result = $conn->query($query);
+        $data = array();
+        while($row = $result->fetch_assoc()) {
+            $data = $row;
+        }
+
+        echo json_encode(array('status' => true, 'data' => $data));
+    }
+
     public static function forgotPassword($email) {
         require_once "../database/database.php";
         $checkUser = "select * from Account where email = '" . $email."'";
@@ -201,6 +214,18 @@ class user {
                 echo json_encode(array("status" => false));
             }
         }
+    }
+
+    public static function getUser() {
+        require_once "../database/database.php";
+        $query = "select * from Customer";
+        $result = $conn->query($query);
+        $data = array();
+        while($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+
+        echo json_encode(array("status" => true, 'message' => 'Get users done!', 'data' => $data));
     }
 }
 ?>
