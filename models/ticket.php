@@ -274,9 +274,10 @@ class ticket
                 join (select seat_id, name, type from seat) s on s.seat_id = t.seat_id
                 where t.customer_id = '" . $userId . "'";
         $result = $conn->query($query);
+        // echo $query;
         $data = array();
         while ($row = $result->fetch_assoc()) {
-            $data = $row;
+            $data[] = $row;
         }
 
         echo json_encode(array('status' => true, 'data' => $data));

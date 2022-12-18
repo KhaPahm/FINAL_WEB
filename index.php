@@ -93,6 +93,13 @@
                         if (isset($_SESSION['logged_in'])) echo $_SESSION['logged_in'] ?> </a>
 
                     <a class="btn btn-secondary loggedin" id="log_out"> LOG OUT </a>
+
+                    <form action="" onsubmit="return false;">
+                        <input type="text" placeholder="Your ID flights"
+                            style="border-radius: 1em 0 0 1em ;width: 15em; height: 2em;" id="input_search_ticket">
+                        <input type="submit" value="go" style="border-radius:0 1em 1em 0;width: 4em;height: 2.45em;"
+                            id="search_ticket">
+                    </form>
                 </div>
 
                 <div class="booking">
@@ -399,5 +406,14 @@
     <script src="./views/js/landing_logic.js"></script>
 
 </body>
+
+<script>
+$('#search_ticket').click(() => {
+    let id = $('#input_search_ticket').val();
+    let href = 'http://localhost/final_web/pdf/pdf.php?ticket_id=' + id;
+    window.location.replace(href);
+})
+</script>
+
 
 </html>

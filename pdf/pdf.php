@@ -1,8 +1,9 @@
-<?php 
+<?php
+
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
-    if(isset($_GET['ticket_id'])) {
+if (isset($_GET['ticket_id'])) {
     require_once "../database/database.php";
     $qery = 'select t.book_day, t.ticket_id, t.firstname, t.lastname, t.nationality, t.email, t.phone, 
     f.takeofftime, f.takeoffday, f.landingtime, f.landingdate, concat(a.name, " (", a.code, ")") as takeoff, concat(a1.name, " (", a1.code, ")") as landing, 
@@ -13,7 +14,7 @@ use Dompdf\Options;
                 join (select airport_id, name, code from airport) a1 on f.landing_airport = a1.airport_id) 
                 join (select plane_id, name, no from plane) p on p.plane_id = f.plane_id) on t.flight_id = f.flight_id)
                 join (select seat_id, name, type from seat) s  on t.seat_id = s.seat_id
-                where t.ticket_id = "'.$_GET['ticket_id'].'";';
+                where t.ticket_id = "' . $_GET['ticket_id'] . '";';
 
 
     $result = $conn->query($qery);
@@ -32,15 +33,15 @@ use Dompdf\Options;
     $seat = "";
     $seattype = "";
     $bookday = "";
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         $ticket_id = $row['ticket_id'];
         $fname = $row['firstname'];
         $lastname = $row['lastname'];
         $nationality = $row['nationality'];
         $email = $row['email'];
         $phone = $row['phone'];
-        $takeoffDate = $row['takeoffday']." ". $row['takeofftime'];
-        $landingDate = $row['landingdate'] ." ". $row['landingtime'];
+        $takeoffDate = $row['takeoffday'] . " " . $row['takeofftime'];
+        $landingDate = $row['landingdate'] . " " . $row['landingtime'];
         $takeoff = $row['takeoff'];
         $landing = $row['landing'];
         $planename = $row['planename'];
@@ -50,10 +51,10 @@ use Dompdf\Options;
         $bookday = $row['book_day'];
     }
 
-    
-    $image=file_get_contents("../public/img/1900xxxxxx.jpg");
-    $imagedata=base64_encode($image);
-    $imgpath='<img src="data:image/png;base64, '.$imagedata.'">';
+
+    $image = file_get_contents("../public/img/1900xxxxxx.jpg");
+    $imagedata = base64_encode($image);
+    $imgpath = '<img src="data:image/png;base64, ' . $imagedata . '">';
 
     $html = "<!DOCTYPE html>
         <html lang='en'>
@@ -119,7 +120,7 @@ use Dompdf\Options;
         </head>
         
         <body>
-            ".$imgpath."
+            " . $imgpath . "
             <section id='body'>
                 <h2>DIGITAL TICKET AIRPLANE</h2>
                 <h4 class='heading'>1. INFRMATION ABOUT BOOKING: </h4>
@@ -128,22 +129,22 @@ use Dompdf\Options;
                         <tr>
                             <td class='tb_header' style='width:50%; text-align: center'>CODE</td>
                             <td class='tb_header' style='width:20%'>Booking person </td>
-                            <td style='width:30%; text-transform: uppercase;'>".$fname. " ".$lastname."</td>
+                            <td style='width:30%; text-transform: uppercase;'>" . $fname . " " . $lastname . "</td>
                         </tr>
                         <tr>
                             <td rowspan='3' style='text-align: center;'>
-                                <h1>".$ticket_id."</h1>
+                                <h1>" . $ticket_id . "</h1>
                             </td>
                             <td class='tb_header'>Booking date</td>
-                            <td>".$bookday."</td>
+                            <td>" . $bookday . "</td>
                         </tr>
                         <tr>
                             <td class='tb_header'>Phone</td>
-                            <td>".$phone."</td>
+                            <td>" . $phone . "</td>
                         </tr>
                         <tr>
                             <td class='tb_header'>Email</td>
-                            <td>".$email."</td>
+                            <td>" . $email . "</td>
                         </tr>
                     </tbody>
                 </table>
@@ -156,9 +157,9 @@ use Dompdf\Options;
                         <th style='width:25%'>Seat class</th>
                     </thead>
                     <tbody>
-                        <td style='text-align: center; text-transform: uppercase;'>".$fname. " ".$lastname."</td>
-                        <td style='text-align: center;'>".$seat."</td>
-                        <td style='text-align: center;'>".$seattype."</td>
+                        <td style='text-align: center; text-transform: uppercase;'>" . $fname . " " . $lastname . "</td>
+                        <td style='text-align: center;'>" . $seat . "</td>
+                        <td style='text-align: center;'>" . $seattype . "</td>
                     </tbody>
                 </table>
         
@@ -168,21 +169,21 @@ use Dompdf\Options;
                     <tbody>
                         <tr>
                             <td class='tb_header' style='width:20%'>Form: </td>
-                            <td style='width:30%; text-transform: uppercase;'>".$takeoff."</td>
+                            <td style='width:30%; text-transform: uppercase;'>" . $takeoff . "</td>
                             <td class='tb_header' style='width:20%'>To: </td>
-                            <td style='width:30%; text-transform: uppercase;'>".$landing."</td>
+                            <td style='width:30%; text-transform: uppercase;'>" . $landing . "</td>
                         </tr>
                         <tr>
                             <td class='tb_header'>Departure date: </td>
-                            <td>".$takeoffDate."</td>
+                            <td>" . $takeoffDate . "</td>
                             <td class='tb_header'>Arrival date: </td>
-                            <td>".$landingDate."</td>
+                            <td>" . $landingDate . "</td>
                         </tr>
                         <tr>
                             <td class='tb_header'>Airplane: </td>
-                            <td style='text-transform: uppercase;'>".$planename."</td>
+                            <td style='text-transform: uppercase;'>" . $planename . "</td>
                             <td class='tb_header'>Number: </td>
-                            <td style='text-transform: uppercase;'>".$planeno."</td>
+                            <td style='text-transform: uppercase;'>" . $planeno . "</td>
                         </tr>
                     </tbody>
         
@@ -196,22 +197,17 @@ use Dompdf\Options;
 
     // echo $html;
 
-        require_once "../vendor/autoload.php";
-    
-    $options=new Options();
+    require_once "../vendor/autoload.php";
+
+    $options = new Options();
     $options->set('defaultFont', 'Helvetica');
-    $options->set('dpi','120');
-    $options->set('enable_html5_parser',true);
-    $options->set('tempDir','C:\xampp\htdocs\final_web\pdf');
+    $options->set('dpi', '120');
+    $options->set('enable_html5_parser', true);
+    $options->set('tempDir', 'C:\xampp\htdocs\final_web\pdf');
     $dompdf = new Dompdf($options);
-    
+
     $dompdf->loadHtml($html);
     $dompdf->setPaper('A5', 'portrait');
     $dompdf->render();
     $dompdf->stream('document', array('Attachment' => 0));
-    }
-    
-        
-
-
-?>
+}
